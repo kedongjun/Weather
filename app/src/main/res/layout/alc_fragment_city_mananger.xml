@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<!--城市管理 fragment-->
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:dslv="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="#FFFAED"
+    android:orientation="vertical">
+
+    <oms.mmc.app.almanac.view.DragGridView
+        android:id="@+id/alc_base_listview"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:listSelector="#ffecba"
+        android:numColumns="3" />
+</LinearLayout>

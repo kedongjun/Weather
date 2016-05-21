@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<!--天气主页-15天预报-->
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@android:color/white"
+    android:orientation="vertical">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="32dp"
+        android:layout_marginLeft="16dp"
+        android:layout_marginRight="16dp"
+        android:gravity="center_vertical"
+        android:text="15天预报"
+        android:textColor="#464646"
+        android:textSize="16sp" />
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="#ebebeb" />
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="346dp">
+
+        <GridView
+            android:id="@+id/daysGridView"
+            android:layout_width="match_parent"
+            android:layout_height="316dp"
+            android:numColumns="15" />
+
+        <HorizontalScrollView
+            android:id="@+id/daysHorizontal"
+            android:layout_width="match_parent"
+            android:layout_height="130dp"
+            android:layout_alignParentBottom="true"
+            android:layout_marginBottom="84dp"
+            android:orientation="vertical" />
+
+    </RelativeLayout>
+
+</LinearLayout>

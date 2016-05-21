@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?><!--天气主页-生活指南item-->
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:gravity="center_vertical"
+    android:orientation="horizontal"
+    android:paddingBottom="4dp"
+    android:paddingLeft="16dp"
+    android:paddingRight="16dp"
+    android:paddingTop="4dp">
+
+    <ImageView
+        android:id="@+id/iconImage"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        android:background="@drawable/alc_weather_yifu" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_vertical|right"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/titleText"
+            android:layout_width="wrap_content"
+            android:layout_height="32dp"
+            android:gravity="center_vertical"
+            android:text="穿衣指南"
+            android:textColor="#464646"
+            android:textSize="16sp" />
+
+        <TextView
+            android:id="@+id/contentText"
+            android:layout_width="wrap_content"
+            android:layout_height="28dp"
+            android:drawablePadding="4dp"
+            android:drawableRight="@drawable/alc_ic_arrow_rigth"
+            android:gravity="center_vertical"
+            android:text="長袖襯衣"
+            android:textColor="#ee6e4a"
+            android:textSize="14sp" />
+
+    </LinearLayout>
+
+</LinearLayout>

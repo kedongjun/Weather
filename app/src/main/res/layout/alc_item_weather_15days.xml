@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?><!--天气主页-24小时预报 item-->
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:background="@android:color/white"
+    android:gravity="center"
+    android:orientation="vertical"
+    android:padding="16dp">
+
+    <TextView
+        android:id="@+id/dayText"
+        android:layout_width="wrap_content"
+        android:layout_height="28dp"
+        android:gravity="center"
+        android:text="昨天"
+        android:textColor="#464646"
+        android:textSize="14sp" />
+
+    <TextView
+        android:id="@+id/dateText"
+        android:layout_width="wrap_content"
+        android:layout_height="24dp"
+        android:gravity="center"
+        android:text="04-07"
+        android:textColor="#464646"
+        android:textSize="12sp" />
+
+    <TextView
+        android:id="@+id/stateMaxText"
+        android:layout_width="wrap_content"
+        android:layout_height="28dp"
+        android:layout_marginTop="8dp"
+        android:gravity="center"
+        android:text="阴转多云"
+        android:textColor="#aa6e4a"
+        android:textSize="14sp" />
+
+    <ImageView
+        android:id="@+id/stateMaxImage"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:layout_marginTop="8dp"
+        android:background="@drawable/alc_weather_state_duoyun"
+        android:text="24小時預報"
+        android:textColor="#464646"
+        android:textSize="16sp" />
+
+
+    <View
+        android:layout_width="50dp"
+        android:layout_height="130dp" />
+
+
+    <ImageView
+        android:id="@+id/stateMinImage"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:layout_marginTop="8dp"
+        android:background="@drawable/alc_weather_state_duoyun"
+        android:text="24小時預報"
+        android:textColor="#464646"
+        android:textSize="16sp" />
+
+
+    <TextView
+        android:id="@+id/stateMinText"
+        android:layout_width="wrap_content"
+        android:layout_height="28dp"
+        android:layout_marginTop="8dp"
+        android:text="阴转多云"
+        android:textColor="#aa6e4a"
+        android:textSize="14sp" />
+</LinearLayout>

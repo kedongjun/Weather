@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?><!--天气主页-24小时预报 item-->
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:background="@android:color/white"
+    android:gravity="center"
+    android:orientation="vertical"
+    android:padding="16dp">
+
+    <TextView
+        android:id="@+id/temText"
+        android:layout_width="wrap_content"
+        android:layout_height="28dp"
+        android:gravity="center"
+        android:text="24°"
+        android:textColor="#aa6e4a"
+        android:textSize="14sp" />
+
+    <ImageView
+        android:id="@+id/stateImage"
+        android:layout_width="48dp"
+        android:layout_height="42dp"
+        android:background="@drawable/alc_weather_state_duoyun"
+        android:text="24小時預報"
+        android:textColor="#464646"
+        android:textSize="16sp" />
+
+    <TextView
+        android:id="@+id/timeText"
+        android:layout_width="wrap_content"
+        android:layout_height="36dp"
+        android:gravity="center"
+        android:text="24時"
+        android:textColor="#464646"
+        android:textSize="14sp" />
+
+
+</LinearLayout>
