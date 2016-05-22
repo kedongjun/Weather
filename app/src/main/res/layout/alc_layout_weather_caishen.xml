@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<!-- 财神 -->
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/caishenLayout"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginTop="56dp"
+    android:padding="8dp">
+
+    <TextView
+        android:id="@+id/caishenTalkImage"
+        android:layout_width="100dp"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_marginRight="50dp"
+        android:background="@drawable/alc_image_caishen_talk"
+        android:text="明天下雨，记得带伞"
+        android:textColor="@android:color/white"
+        android:textSize="12sp"
+        android:visibility="invisible" />
+
+    <ImageView
+        android:id="@+id/caishenImage"
+        android:layout_width="90dp"
+        android:layout_height="92dp"
+        android:layout_alignParentRight="true"
+        android:layout_below="@+id/caishenTalkImage"
+        android:background="@drawable/alc_image_caishen" />
+
+    <ImageView
+        android:id="@+id/deleteImage"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/caishenImage"
+        android:layout_alignParentRight="true"
+        android:layout_marginBottom="-8dp"
+        android:layout_marginRight="8dp"
+        android:background="@drawable/alc_city_manager_del"
+        android:visibility="visible" />
+
+</RelativeLayout>

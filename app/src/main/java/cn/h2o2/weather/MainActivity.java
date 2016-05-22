@@ -1,79 +1,131 @@
 package cn.h2o2.weather;
 
-import android.Manifest;
 import android.animation.Animator;
-import android.content.pm.PackageManager;
 import android.os.Bundle;
-import android.support.v4.app.ActivityCompat;
-import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.lzy.widget.PullZoomView;
 
+import java.util.ArrayList;
+
+import cn.h2o2.weather.model.Weather;
+
 public class MainActivity extends AppCompatActivity {
 
-    private final static int WRITE_EXTERNAL_STORAGE_REQUEST_CODE = 1000;
-    TextView caishenTalkImage;
-    ImageView caishenImage;
+
+    private Weather weather;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        init();
+        findViewById();
+
+        setTopUI();
+        setHourUI();
+        setDayUI();
+    }
+
+    private void init() {
+        weather = new Weather();
+        ArrayList<Weather.Hour> hours = new ArrayList<>();
+        for (int i = 0; i < 24; i++) {
+            Weather.Hour hour = new Weather.Hour();
+            hour.setHour(i + "时");
+            hour.setState("晴转多云");
+            hour.setTem(i + "°");
+            hours.add(hour);
+        }
+        weather.setHours(hours);
+
+        ArrayList<Weather.Day> days = new ArrayList<>();
+        for (int i = 0; i < 24; i++) {
+            Weather.Day day = new Weather.Day();
+            day.setDay(i + "今天");
+            day.setDate("05-"+i);
+            day.setStateMin("晴转多云");
+            day.setStateMax("晴转多云");
+            day.setTemMin(i + "°");
+            day.setTemMax((i*3) + "°");
+            days.add(day);
+        }
+        weather.setDays(days);
+    }
+
+    private void findViewById() {
         setContentView(R.layout.alc_fragment_weather_details);
 
+    }
 
-//        caishenTalkImage = (TextView) findViewById(R.id.caishenTalkImage);
+    private void setTopUI() {
 
-        caishenImage = (ImageView) findViewById(R.id.caishenImage);
-        caishenImage.setOnClickListener(new View.OnClickListener() {
+        final TextView caishenTalkImage = (TextView) findViewById(R.id.caishenTalkImage);
+        final ImageView caishenImage = (ImageView) findViewById(R.id.caishenImage);
+        final Animator.AnimatorListener listener = new Animator.AnimatorListener() {
+
             @Override
-            public void onClick(View view) {
-                AnimatorUtil.caishenAnimator(caishenImage, 1500,listener);
+            public void onAnimationStart(Animator animator) {
+                caishenTalkImage.setVisibility(View.INVISIBLE);
             }
-        });
 
+            @Override
+            public void onAnimationEnd(Animator animator) {
+                caishenTalkImage.setVisibility(View.VISIBLE);
+            }
+
+            @Override
+            public void onAnimationCancel(Animator animator) {
+
+            }
+
+            @Override
+            public void onAnimationRepeat(Animator animator) {
+
+            }
+        };
+        AnimatorUtil.caishenAnimator(caishenImage, 1500, listener);
+
+        //
         PullZoomView pzv = (PullZoomView) findViewById(R.id.pzv);
-        pzv.setIsParallax(false);
+        pzv.setIsParallax(true);
         pzv.setIsZoomEnable(true);
         pzv.setSensitive(1.5f);
         pzv.setZoomTime(500);
 
+    }
 
-        //在这里为应用设置异常处理程序，然后我们的程序才能捕获未处理的异常
-        if (ContextCompat.checkSelfPermission(this,
-                Manifest.permission.WRITE_EXTERNAL_STORAGE) != PackageManager.PERMISSION_GRANTED) {
-            //申请WRITE_EXTERNAL_STORAGE权限
-            ActivityCompat.requestPermissions(this,
-                    new String[]{Manifest.permission.WRITE_EXTERNAL_STORAGE},
-                    WRITE_EXTERNAL_STORAGE_REQUEST_CODE);
+
+    private void setHourUI() {
+        LinearLayout hourView = (LinearLayout) findViewById(R.id.hourView);
+        ArrayList<Weather.Hour> hours = weather.getHours();
+        for (int i = 0; i < hours.size(); i++) {
+            Weather.Hour hour = hours.get(i);
+            View view = LinearLayout.inflate(this,
+                    R.layout.alc_item_weather_24hours, null);
+            TextView textView = (TextView) view.findViewById(R.id.temText);
+            textView.setText(hour.getTem());
+
+            hourView.addView(view);
         }
     }
 
-    Animator.AnimatorListener listener = new Animator.AnimatorListener() {
+    private void setDayUI() {
+        LinearLayout hourView = (LinearLayout) findViewById(R.id.daysView);
+        ArrayList<Weather.Day> days = weather.getDays();
+        for (int i = 0; i < days.size(); i++) {
+            Weather.Day day = days.get(i);
+            View view = LinearLayout.inflate(this,
+                    R.layout.alc_item_weather_15days, null);
+            TextView dayText = (TextView) view.findViewById(R.id.dayText);
+            dayText.setText(day.getDay());
 
-        @Override
-        public void onAnimationStart(Animator animator) {
-
-            caishenTalkImage.setVisibility(View.INVISIBLE);
+            hourView.addView(view);
         }
+    }
 
-        @Override
-        public void onAnimationEnd(Animator animator) {
-            caishenTalkImage.setVisibility(View.VISIBLE);
-        }
-
-        @Override
-        public void onAnimationCancel(Animator animator) {
-
-        }
-
-        @Override
-        public void onAnimationRepeat(Animator animator) {
-
-        }
-    };
 
 }

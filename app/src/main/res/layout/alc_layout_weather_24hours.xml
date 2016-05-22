@@ -20,9 +20,19 @@
         android:layout_height="1dp"
         android:background="#ebebeb" />
 
-    <GridView
-        android:id="@+id/hoursGridView"
+    <HorizontalScrollView
         android:layout_width="match_parent"
         android:layout_height="124dp"
-        android:numColumns="24" />
+        android:numColumns="24">
+
+        <LinearLayout
+            android:id="@+id/hourView"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:orientation="horizontal">
+
+
+        </LinearLayout>
+
+    </HorizontalScrollView>
 </LinearLayout>

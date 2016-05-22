@@ -22,24 +22,38 @@
         android:layout_height="1dp"
         android:background="#ebebeb" />
 
-    <RelativeLayout
+
+    <HorizontalScrollView
         android:layout_width="match_parent"
-        android:layout_height="346dp">
+        android:layout_height="368dp"
+        android:orientation="vertical">
 
-        <GridView
-            android:id="@+id/daysGridView"
-            android:layout_width="match_parent"
-            android:layout_height="316dp"
-            android:numColumns="15" />
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent">
 
-        <HorizontalScrollView
-            android:id="@+id/daysHorizontal"
-            android:layout_width="match_parent"
-            android:layout_height="130dp"
-            android:layout_alignParentBottom="true"
-            android:layout_marginBottom="84dp"
-            android:orientation="vertical" />
+            <LinearLayout
+                android:id="@+id/daysView"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:orientation="horizontal">
 
-    </RelativeLayout>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="130dp"
+                android:layout_marginBottom="84dp"
+                android:background="#bb2222"
+                android:orientation="horizontal">
+
+
+            </LinearLayout>
+
+
+        </RelativeLayout>
+
+    </HorizontalScrollView>
 
 </LinearLayout>
