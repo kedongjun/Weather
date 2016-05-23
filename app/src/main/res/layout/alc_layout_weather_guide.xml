@@ -23,9 +23,12 @@
         android:background="#ebebeb" />
 
     <GridView
-        android:id="@+id/guideGridView"
+        android:id="@+id/guideView"
         android:layout_width="match_parent"
+        android:layout_height="207dp"
+        android:background="#ebebeb"
+        android:horizontalSpacing="1dp"
         android:numColumns="2"
-        android:layout_height="200dp"
-        android:layout_weight="1.0" />
+        android:verticalSpacing="1dp" />
+
 </LinearLayout>

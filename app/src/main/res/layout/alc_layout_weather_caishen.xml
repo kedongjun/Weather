@@ -5,11 +5,11 @@
     android:id="@+id/caishenLayout"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:layout_marginTop="56dp"
+    android:layout_marginTop="68dp"
     android:padding="8dp">
 
     <TextView
-        android:id="@+id/caishenTalkImage"
+        android:id="@+id/caishenTalkText"
         android:layout_width="100dp"
         android:layout_height="wrap_content"
         android:layout_alignParentRight="true"
@@ -25,7 +25,7 @@
         android:layout_width="90dp"
         android:layout_height="92dp"
         android:layout_alignParentRight="true"
-        android:layout_below="@+id/caishenTalkImage"
+        android:layout_below="@+id/caishenTalkText"
         android:background="@drawable/alc_image_caishen" />
 
     <ImageView

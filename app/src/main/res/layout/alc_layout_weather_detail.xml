@@ -25,12 +25,12 @@
     <LinearLayout
         android:id="@+id/hoursHorizontal"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="154dp"
         android:orientation="horizontal">
 
         <LinearLayout
             android:layout_width="0dp"
-            android:layout_height="wrap_content"
+            android:layout_height="match_parent"
             android:layout_weight="1.0"
             android:orientation="vertical">
 
@@ -51,11 +51,24 @@
             android:layout_height="match_parent"
             android:background="#ebebeb" />
 
-        <ListView
-            android:id="@+id/detailList"
+        <LinearLayout
             android:layout_width="0dp"
-            android:layout_height="200dp"
-            android:layout_weight="1.0" />
+            android:layout_height="match_parent"
+            android:layout_weight="1.0"
+            android:orientation="vertical">
+
+            <ListView
+                android:id="@+id/detailList"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent" />
+
+        </LinearLayout>
 
     </LinearLayout>
+
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="#ebebeb" />
 </LinearLayout>

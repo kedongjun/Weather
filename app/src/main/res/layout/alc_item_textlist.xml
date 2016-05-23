@@ -9,17 +9,11 @@
     android:paddingBottom="8dp"
     android:paddingTop="8dp">
 
-    <ImageView
-        android:id="@+id/typeImage"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:background="@drawable/alc_weather_xianxing" />
-
     <TextView
         android:id="@+id/keyText"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="8dp"
+        android:layout_marginLeft="16dp"
         android:layout_marginRight="8dp"
         android:layout_weight="1.0"
         android:text="风力"
@@ -30,7 +24,7 @@
         android:id="@+id/valueText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="8dp"
+        android:layout_marginRight="16dp"
         android:text="东南风 2级"
         android:textColor="#aa6e4a"
         android:textSize="16sp" />

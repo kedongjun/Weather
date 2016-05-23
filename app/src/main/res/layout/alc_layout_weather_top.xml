@@ -3,9 +3,8 @@
 <!--天气主页-顶部 -->
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="350dp"
+    android:layout_height="394dp"
     android:tag="header">
-
 
     <ImageView
         android:id="@+id/topImage"
@@ -15,10 +14,10 @@
         android:src="@drawable/alc_wather_top_bg"
         android:tag="zoom" />
 
-
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginTop="56dp"
         android:orientation="vertical"
         android:padding="16dp"
         android:visibility="visible">
@@ -38,7 +37,7 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="24dp"
+            android:layout_marginTop="16dp"
             android:gravity="center"
             android:orientation="horizontal">
 
@@ -111,20 +110,18 @@
         </LinearLayout>
 
         <LinearLayout
-            android:id="@+id/infoLayout"
             android:layout_width="match_parent"
             android:layout_height="160dp"
-            android:layout_marginTop="16dp"
-            android:gravity="center"
+            android:layout_marginLeft="32dp"
+            android:layout_marginRight="32dp"
+            android:layout_marginTop="8dp"
             android:orientation="vertical">
 
             <ListView
-                android:id="@+id/infoListView"
+                android:id="@+id/topList"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent" />
-
         </LinearLayout>
-
 
     </LinearLayout>
 
