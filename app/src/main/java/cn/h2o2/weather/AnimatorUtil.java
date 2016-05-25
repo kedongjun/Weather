@@ -27,7 +27,6 @@ public class AnimatorUtil {
         //Y从0放大到1倍
         PropertyValuesHolder scaleY = PropertyValuesHolder
                 .ofFloat("scaleY", 0, 1f);
-//        ObjectAnimator.ofPropertyValuesHolder(view,translationX).setDuration(1500).start();
 
         //组合执行
         ObjectAnimator animator = ObjectAnimator.ofPropertyValuesHolder(

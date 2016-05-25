@@ -10,14 +10,69 @@ import java.util.HashMap;
 public class Weather implements Serializable {
 
     private String id;
+    private String location;
+    private String temMin;
+    private String temMax;
+    private String state;
+    private String stateText;
+    private String isDefault;
     private Top top;
     private ArrayList<Hour> hours;
     private ArrayList<Day> days;
     private Detail detail;
     private ArrayList<Guide> guides;
+    private boolean isEdit;
 
     public String getId() {
         return id;
+    }
+
+    public String getIsDefault() {
+        return isDefault;
+    }
+
+    public void setIsDefault(String isDefault) {
+        this.isDefault = isDefault;
+    }
+
+    public String getLocation() {
+        return location;
+    }
+
+    public void setLocation(String location) {
+        this.location = location;
+    }
+
+    public String getState() {
+        return state;
+    }
+
+    public void setState(String state) {
+        this.state = state;
+    }
+
+    public String getStateText() {
+        return stateText;
+    }
+
+    public void setStateText(String stateText) {
+        this.stateText = stateText;
+    }
+
+    public String getTemMax() {
+        return temMax;
+    }
+
+    public void setTemMax(String temMax) {
+        this.temMax = temMax;
+    }
+
+    public String getTemMin() {
+        return temMin;
+    }
+
+    public void setTemMin(String temMin) {
+        this.temMin = temMin;
     }
 
     public Top getTop() {
@@ -62,6 +117,14 @@ public class Weather implements Serializable {
 
     public void setGuides(ArrayList<Guide> guides) {
         this.guides = guides;
+    }
+
+    public boolean isEdit() {
+        return isEdit;
+    }
+
+    public void setIsEdit(boolean isEdit) {
+        this.isEdit = isEdit;
     }
 
     public static class Top implements Serializable{

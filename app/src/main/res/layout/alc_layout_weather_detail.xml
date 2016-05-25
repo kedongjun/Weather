@@ -44,6 +44,10 @@
                 android:textColor="#464646"
                 android:textSize="14sp" />
 
+            <cn.h2o2.weather.view.WeatherView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent" />
+
         </LinearLayout>
 
         <View

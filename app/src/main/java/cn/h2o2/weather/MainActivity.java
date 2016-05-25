@@ -63,18 +63,18 @@ public class MainActivity extends AppCompatActivity {
 
     private void setTopUI() {
 
-        final TextView caishenTalkImage = (TextView) findViewById(R.id.caishenTalkImage);
+        final TextView caishenTalkText = (TextView) findViewById(R.id.caishenTalkText);
         final ImageView caishenImage = (ImageView) findViewById(R.id.caishenImage);
         final Animator.AnimatorListener listener = new Animator.AnimatorListener() {
 
             @Override
             public void onAnimationStart(Animator animator) {
-                caishenTalkImage.setVisibility(View.INVISIBLE);
+                caishenTalkText.setVisibility(View.INVISIBLE);
             }
 
             @Override
             public void onAnimationEnd(Animator animator) {
-                caishenTalkImage.setVisibility(View.VISIBLE);
+                caishenTalkText.setVisibility(View.VISIBLE);
             }
 
             @Override

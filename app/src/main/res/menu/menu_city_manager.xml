@@ -7,11 +7,11 @@
         android:icon="@drawable/alc_menu_refresh"
         android:orderInCategory="100"
         android:title="刷新"
-        app:showAsAction="never" />
+        app:showAsAction="always" />
     <item
-        android:id="@+id/action_add"
+        android:id="@+id/action_edit"
         android:icon="@drawable/alc_menu_edit_off"
         android:orderInCategory="100"
         android:title="编辑"
-        app:showAsAction="never" />
+        app:showAsAction="always" />
 </menu>

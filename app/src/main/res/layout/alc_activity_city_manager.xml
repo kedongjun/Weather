@@ -13,52 +13,21 @@
         android:id="@+id/toolbar"
         android:layout_width="match_parent"
         android:layout_height="56dp"
-        android:background="?attr/colorPrimary"
-        toolbar:popupTheme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
-        toolbar:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar" />
+        android:background="#dcb479"
+        toolbar:popupTheme="@style/ThemeOverlay.AppCompat.Light"
+        toolbar:theme="@style/ThemeOverlay.AppCompat.Light" />
 
-    <cn.h2o2.weather.SampleGridContainer
-        android:id="@+id/gridView"
+    <cn.h2o2.weather.view.DragGridView
+        android:id="@+id/dragGridView"
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
-
-        <include
-            layout="@layout/alc_item_city_manager"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content" />
-
-        <include
-            layout="@layout/alc_item_city_manager"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content" />
-
-        <include
-            layout="@layout/alc_item_city_manager"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content" />
-
-        <include
-            layout="@layout/alc_item_city_manager"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content" />
-
-        <include
-            layout="@layout/alc_item_city_manager"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content" />
-
-        <include
-            layout="@layout/alc_item_city_manager"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content" />
-
-        <include
-            layout="@layout/alc_item_city_manager"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content" />
-
-
-    </cn.h2o2.weather.SampleGridContainer>
-
+        android:layout_height="match_parent"
+        android:cacheColorHint="@android:color/transparent"
+        android:gravity="center"
+        android:horizontalSpacing="1dp"
+        android:listSelector="@android:color/transparent"
+        android:numColumns="3"
+        android:padding="8dp"
+        android:stretchMode="columnWidth"
+        android:verticalSpacing="1dp" />
 
 </LinearLayout>

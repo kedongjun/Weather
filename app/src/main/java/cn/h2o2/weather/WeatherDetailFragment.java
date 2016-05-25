@@ -30,9 +30,22 @@ import cn.h2o2.weather.model.Weather;
  */
 public class WeatherDetailFragment extends Fragment {
 
+    public Weather weather;
     WeatherDetailActivity activity;
     ViewGroup rootLayout;
     public boolean isLoad;
+
+    public static WeatherDetailFragment newIntance(Bundle bundle) {
+        WeatherDetailFragment current = new WeatherDetailFragment();
+        current.setArguments(bundle);
+        return current;
+    }
+
+    public static Bundle getArgument(Weather weather) {
+        Bundle bundle = new Bundle();
+        bundle.putSerializable(weather.getClass().getSimpleName(), weather);
+        return bundle;
+    }
 
 
     @Override
@@ -43,6 +56,8 @@ public class WeatherDetailFragment extends Fragment {
             return;
         }
         activity = (WeatherDetailActivity) getActivity();
+        weather = (Weather) getArguments().getSerializable(
+                Weather.class.getSimpleName());
     }
 
     @Nullable
@@ -86,7 +101,7 @@ public class WeatherDetailFragment extends Fragment {
         TextView stateText = (TextView) rootLayout.findViewById(R.id.stateText);
         TextView kongqiText = (TextView) rootLayout.findViewById(R.id.kongqiText);
         ListView topList = (ListView) rootLayout.findViewById(R.id.topList);
-        Weather.Top top = activity.weather.getTop();
+        Weather.Top top = weather.getTop();
         temText.setText(top.getTem());
         stateText.setText(top.getState());
         kongqiText.setText(top.getKongqi() + " 优");
@@ -132,7 +147,7 @@ public class WeatherDetailFragment extends Fragment {
 
     private void setHourUI() {
         LinearLayout hourView = (LinearLayout) rootLayout.findViewById(R.id.hourView);
-        ArrayList<Weather.Hour> hours = activity.weather.getHours();
+        ArrayList<Weather.Hour> hours = weather.getHours();
         for (int i = 0; i < hours.size(); i++) {
             Weather.Hour hour = hours.get(i);
             View view = LinearLayout.inflate(activity,
@@ -146,7 +161,7 @@ public class WeatherDetailFragment extends Fragment {
 
     private void setDayUI() {
         LinearLayout hourView = (LinearLayout) rootLayout.findViewById(R.id.daysView);
-        ArrayList<Weather.Day> days = activity.weather.getDays();
+        ArrayList<Weather.Day> days = weather.getDays();
         for (int i = 0; i < days.size(); i++) {
             Weather.Day day = days.get(i);
             View view = LinearLayout.inflate(activity,
@@ -161,12 +176,12 @@ public class WeatherDetailFragment extends Fragment {
     private void setGuideUI() {
         GridView guideView = (GridView) rootLayout.findViewById(R.id.guideView);
         guideView.setAdapter(new WeatherGuideAdapter(activity,
-                activity.weather.getGuides()));
+                weather.getGuides()));
     }
 
-    private void setDetail(){
+    private void setDetail() {
         ListView detailList = (ListView) rootLayout.findViewById(R.id.detailList);
-        Weather.Detail detail = activity.weather.getDetail();
+        Weather.Detail detail = weather.getDetail();
         detailList.setAdapter(new TextListViewAdapter(activity, detail.getInfos()));
     }
 }

@@ -1,6 +1,5 @@
 package cn.h2o2.weather;
 
-import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.support.v4.view.ViewPager;
@@ -19,7 +18,7 @@ import cn.h2o2.weather.model.Weather;
 
 public class WeatherDetailActivity extends AppCompatActivity {
 
-    public Weather weather;
+    ArrayList<Weather> weathers = new ArrayList<>();
     private Toolbar toolbar;
     private ViewPager viewPager;
 
@@ -46,8 +45,7 @@ public class WeatherDetailActivity extends AppCompatActivity {
             return false;
         }
         if (id == R.id.action_add) {
-            Intent intent = new Intent(this, CityManagerActivity.class);
-            startActivity(intent);
+            CityManagerActivity.start(this, weathers);
             return false;
         }
         if (id == R.id.action_share) {
@@ -59,64 +57,72 @@ public class WeatherDetailActivity extends AppCompatActivity {
     }
 
 
-
     private void init() {
-        weather = new Weather();
-        //top
-        Weather.Top top = new Weather.Top();
-        top.setKongqi(25);
-        top.setState("晴转多云");
-        top.setTem(20 + "°");
-        HashMap<String, String> map = new HashMap<>();
-        map.put("风力", "2级");
-        map.put("能见度", "5.0km");
-        map.put("湿度", "74%");
-        map.put("北京单行限号", "");
-        top.setInfos(map);
-        weather.setTop(top);
-        //hour
-        ArrayList<Weather.Hour> hours = new ArrayList<>();
-        for (int i = 0; i < 24; i++) {
-            Weather.Hour hour = new Weather.Hour();
-            hour.setHour(i + "时");
-            hour.setState("晴转多云");
-            hour.setTem(i + "°");
-            hours.add(hour);
-        }
-        weather.setHours(hours);
-        //day
-        ArrayList<Weather.Day> days = new ArrayList<>();
-        for (int i = 0; i < 24; i++) {
-            Weather.Day day = new Weather.Day();
-            day.setDay(i + "今天");
-            day.setDate("05-" + i);
-            day.setStateMin("晴转多云");
-            day.setStateMax("晴转多云");
-            day.setTemMin(i + "°");
-            day.setTemMax((i * 3) + "°");
-            days.add(day);
-        }
-        weather.setDays(days);
 
-        //detail
-        Weather.Detail detail = new Weather.Detail();
-        HashMap<String,String> detailMap = new HashMap<>();
-        detailMap.put("体感温度","30°");
-        detailMap.put("云量","多云");
-        detailMap.put("露点温度","12°");
-        detailMap.put("气压","1004pm");
-        detail.setInfos(detailMap);
-        weather.setDetail(detail);
+        for (int j = 0; j < 4; j++) {
+            Weather weather = new Weather();
+            weather.setLocation("广州" + j);
+            weather.setTemMin("20°");
+            weather.setTemMax("32°");
 
-        //guide
-        ArrayList<Weather.Guide> guides = new ArrayList<>();
-        for (int i = 0; i < 6; i++) {
-            Weather.Guide guide = new Weather.Guide();
-            guide.setTitle("穿衣服" + i);
-            guide.setContent("长袖衬衣" + i);
-            guides.add(guide);
+            //top
+            Weather.Top top = new Weather.Top();
+            top.setKongqi(25);
+            top.setState("晴转多云");
+            top.setTem(20 + "°");
+            HashMap<String, String> map = new HashMap<>();
+            map.put("风力", "2级");
+            map.put("能见度", "5.0km");
+            map.put("湿度", "74%");
+            map.put("北京单行限号", "");
+            top.setInfos(map);
+            weather.setTop(top);
+            //hour
+            ArrayList<Weather.Hour> hours = new ArrayList<>();
+            for (int i = 0; i < 24; i++) {
+                Weather.Hour hour = new Weather.Hour();
+                hour.setHour(i + "时");
+                hour.setState("晴转多云");
+                hour.setTem(i + "°");
+                hours.add(hour);
+            }
+            weather.setHours(hours);
+            //day
+            ArrayList<Weather.Day> days = new ArrayList<>();
+            for (int i = 0; i < 24; i++) {
+                Weather.Day day = new Weather.Day();
+                day.setDay(i + "今天");
+                day.setDate("05-" + i);
+                day.setStateMin("晴转多云");
+                day.setStateMax("晴转多云");
+                day.setTemMin(i + "°");
+                day.setTemMax((i * 3) + "°");
+                days.add(day);
+            }
+            weather.setDays(days);
+
+            //detail
+            Weather.Detail detail = new Weather.Detail();
+            HashMap<String, String> detailMap = new HashMap<>();
+            detailMap.put("体感温度", "30°");
+            detailMap.put("云量", "多云");
+            detailMap.put("露点温度", "12°");
+            detailMap.put("气压", "1004pm");
+            detail.setInfos(detailMap);
+            weather.setDetail(detail);
+
+            //guide
+            ArrayList<Weather.Guide> guides = new ArrayList<>();
+            for (int i = 0; i < 6; i++) {
+                Weather.Guide guide = new Weather.Guide();
+                guide.setTitle("穿衣服" + i);
+                guide.setContent("长袖衬衣" + i);
+                guides.add(guide);
+            }
+            weather.setGuides(guides);
+
+            weathers.add(weather);
         }
-        weather.setGuides(guides);
     }
 
     private void findViewById() {
@@ -134,11 +140,15 @@ public class WeatherDetailActivity extends AppCompatActivity {
             getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         }
 
+        //
         FmPagerAdapter adapter = new FmPagerAdapter(getSupportFragmentManager(), this);
-        adapter.addFragment("广州", new WeatherDetailFragment());
-        adapter.addFragment("深圳", new WeatherDetailFragment());
-        adapter.addFragment("茂名", new WeatherDetailFragment());
-        adapter.addFragment("顺德", new WeatherDetailFragment());
+        for (int i = 0; i < weathers.size(); i++) {
+            Weather weather = weathers.get(i);
+            adapter.addFragment(weather.getLocation(),
+                    WeatherDetailFragment.newIntance(
+                            WeatherDetailFragment.getArgument(weather)));
+        }
+
         viewPager.setAdapter(adapter);
 
 
